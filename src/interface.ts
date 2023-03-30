@@ -1,6 +1,6 @@
 export interface Partido {
-    Local: string;
-    Visitante: string;
+    local: string;
+    visitante: string;
     puntosLocal: string;
     puntosVisitante: string;
     hora: string;
