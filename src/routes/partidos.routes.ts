@@ -9,14 +9,14 @@ const router = Router();
 
 //Nba
 router.get('/nba', NbaController.getAll);
-router.get('/nba/id', NbaController.getById);
-router.post('/nba', NbaController.create);
+// router.post('/nba', NbaController.create);
 //Nhl
 router.get('/nhl', NhlController.getAll);
-router.post('/nhl', NhlController.create);
+// router.post('/nhl', NhlController.create);
 //Mlb
 router.get('/mlb', MlbController.getAll);
-router.post('/mlb', MlbController.create);
+// router.post('/mlb', MlbController.create);
+
 
 
 export default router;

@@ -36,6 +36,7 @@ const nbaSchema = new Schema({
     puntosLocal: { type: Number },
     puntosVisitante: { type: Number },
     hora: { type: String },
+    date: Date,
     apuestas: {
         handicapLocal: [
             {
