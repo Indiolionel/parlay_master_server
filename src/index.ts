@@ -23,6 +23,7 @@ db.on('open',()=>{
   console.log("Conexion exitosa a la base de datos")
 })
 
+
 // export const connectMongo = async () => {
 //   try {
 //     await connectionPromise;
