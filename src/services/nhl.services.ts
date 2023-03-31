@@ -49,6 +49,7 @@ export class NhlService {
 
     public static async getAll() {
         
+        
         const partidos = await nhl.find();
         return { success: true, data: partidos }
 
