@@ -11,6 +11,7 @@ export function convertirHoraNba(horaStr: any) {
         }
         return new Date(0, 0, 0, hora, minuto);
     }
+    
     if (horaStr.startsWith('Q1')) {
         return new Date(0, 0, 0, 0, 4);
 
