@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { start } from '../scraper/bwin';
+// import { start } from '../scraper/bwin';
 import { NhlService } from '../services/nhl.services';
 
 

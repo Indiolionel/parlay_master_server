@@ -1,7 +1,7 @@
 import mlb from '../mongo/models/mlb'
 import { db } from '../index'
 import { MlbInterface } from '../mongo/models/mlb';
-import { convertirHoraMlb } from '../scraper/conversionHora';
+// import { convertirHoraMlb } from '../scraper/conversionHora';
 
 
 export class MlbService {

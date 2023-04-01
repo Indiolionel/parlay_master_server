@@ -2,7 +2,7 @@
 import { NhlInterface } from '../mongo/models/nhl'
 import nhl from '../mongo/models/nhl'
 import { db } from '../index'
-import { convertirHoraNhl } from '../scraper/conversionHora'
+// import { convertirHoraNhl } from '../scraper/conversionHora'
 
 
 export class NhlService {
@@ -49,7 +49,7 @@ export class NhlService {
 
     public static async getAll() {
         
-        
+
         const partidos = await nhl.find();
         return { success: true, data: partidos }
 

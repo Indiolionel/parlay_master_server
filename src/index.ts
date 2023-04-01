@@ -3,8 +3,7 @@ import cors from 'cors';
 import dotenv from 'dotenv'
 import partidosRoutes from './routes/partidos.routes'
 import mongoose from 'mongoose'
-import { MongoClientOptions, Db } from 'mongodb'
-import { start } from './scraper/bwin'
+import { MongoClientOptions } from 'mongodb'
 
 const server = express()
 dotenv.config();
@@ -24,27 +23,12 @@ db.on('open',()=>{
 })
 
 
-// export const connectMongo = async () => {
-//   try {
-//     await connectionPromise;
-//     console.log('Conexión exitosa a la base de datos');
-//     return mongoose.connection;
-//   } catch (err) {
-//     console.error('Error al conectar a la base de datos:', err);
-//     throw err;
-//   }
-// };
-
-
 
 server.use(express.json());
 server.use(cors());
 
 server.use('/partidos', partidosRoutes);
-// export const scraper = async () => {
-//   const data = await start();
-//   return data
-// };
+
 
 
 server.listen(port, () => {
