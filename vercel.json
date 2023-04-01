@@ -1,16 +1,10 @@
 {
     "functions": {
-        "api/**/*.js": {
-            "maxDuration": 60
+        "api/**/*.js/*.ts": {
+            "memory": 512
         }
     },
     "version": 2,
-    "builds": [
-        {
-            "src": "src/index.ts",
-            "use": "@vercel/node"
-        }
-    ],
     "routes": [
         {
             "src": "/(.*)",
