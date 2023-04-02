@@ -16,7 +16,9 @@ export class NbaController {
     // }
 
     public static async getAll(req: Request, res: Response) {
+        console.log("Antes de NbaService.getAll() ")
         const partidos = await NbaService.getAll();
+        console.log("Despues de NbaService.getAll() ")
 
 		res.status(partidos.success ? 200 : 400).send(partidos);
     }
