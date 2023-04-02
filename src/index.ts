@@ -22,6 +22,11 @@ db.on('open',()=>{
   console.log("Conexion exitosa a la base de datos")
 })
 
+db.on('error',()=> {
+  console.log("Error al conectarse")
+  return false
+})
+
 
 
 server.use(express.json());
