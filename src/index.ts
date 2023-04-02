@@ -35,3 +35,4 @@ server.listen(port, () => {
     console.log(`Servidor corriendo en http://localhost:${port}`);
 })
 
+export default server;
