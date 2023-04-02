@@ -48,10 +48,14 @@ export class NhlService {
     // }
 
     public static async getAll() {
-        
 
-        const partidos = await nhl.find();
-        return { success: true, data: partidos }
+        try {
+            const partidos = await nhl.find();
+            return { success: true, data: partidos }
+        } catch (error) {
+            console.error(error)
+            return { success: false, data: error }
+        }
 
     }
 

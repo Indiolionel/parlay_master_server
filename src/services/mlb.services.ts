@@ -48,9 +48,15 @@ export class MlbService {
     // }
 
     public static async getAll() {
+        try {
+            const partidos = await mlb.find();
+            return { success: true, data: partidos }
+        } catch (error) {
+            console.error(error)
+
+            return { success: false, data: error }
+        }
         
-        const partidos = await mlb.find();
-        return { success: true, data: partidos }
 
     }
 

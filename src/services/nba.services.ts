@@ -48,11 +48,14 @@ export class NbaService {
     // }
 
     public static async getAll() {
-        console.log("Antes de entrar await nba.find()")
-        const partidos = await nba.find();
-        console.log("Despues de realizar nba.find()")
+        try {
+            const partidos = await nba.find();
+            return { success: true, data: partidos }
+        } catch (error) {
+            console.error(error)
 
-        return { success: true, data: partidos }
+            return { success: false, data: error }
+        }
 
     }
 
