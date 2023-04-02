@@ -1,4 +1,4 @@
-import express from 'express'
+import express, { Request, Response } from 'express'
 import cors from 'cors';
 import dotenv from 'dotenv'
 import partidosRoutes from './routes/partidos.routes'
@@ -29,6 +29,9 @@ server.use(cors());
 
 server.use('/partidos', partidosRoutes);
 
+server.get('/health', (req:Request,res:Response)=>{
+    res.send("Hola")
+} );
 
 
 server.listen(port, () => {
