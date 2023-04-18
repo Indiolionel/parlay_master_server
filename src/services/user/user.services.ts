@@ -53,7 +53,7 @@ export class UserService {
         try {
             const userData = await user.findOne({ email });
             if (!userData) return { sucess: false, error: 'No existe el email registrado', code: "auth/user-not-found" };
-
+            console.log(userData)
             const token = JWTservice.sign({ id: userData?.id, email })
 
             const isMatch = await bcrypt.compare(data.password.toString(), userData?.password?.toString() ?? '');

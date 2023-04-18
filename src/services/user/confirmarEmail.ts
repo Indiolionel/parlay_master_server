@@ -5,7 +5,7 @@ import dotenv from 'dotenv'
 dotenv.config();
 export const emailRegistro = async (datos: any) => {
     console.log(datos)
-    console.log(process.env.SENDGRID_API_KEY)
+    console.log("api sendGrid",process.env.SENDGRID_API_KEY)
 
     sgMail.setApiKey(process.env.SENDGRID_API_KEY!);
 
