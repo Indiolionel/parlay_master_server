@@ -27,6 +27,7 @@ export const emailRegistro = async (datos: any) => {
 
         console.log("llega aca")
         const sendMail = await sgMail.send(msg);
+        console.log("aca llega ????", sendMail)
         return { mensaje: 'Se envio correctamente el email', sendMail };
 
     } catch (error) {
