@@ -31,7 +31,7 @@ export const emailRegistro = async (datos: any) => {
         return { mensaje: 'Se envio correctamente el email', sendMail };
 
     } catch (error) {
-        console.error(error);
+        console.error('Error al enviar el correo electrónico:', error);
         return { error: 'Error al enviar el correo electrónico' };
     }
 
