@@ -1,11 +1,11 @@
 import sgMail from "@sendgrid/mail";
-import nodemailer from 'nodemailer';
 import dotenv from 'dotenv'
 
 dotenv.config();
 export const emailRegistro = async (datos: any) => {
     console.log(datos)
     console.log("api sendGrid",process.env.SENDGRID_API_KEY)
+    console.log("url frontend",process.env.FRONTEND_URL)
 
     sgMail.setApiKey(process.env.SENDGRID_API_KEY!);
 
