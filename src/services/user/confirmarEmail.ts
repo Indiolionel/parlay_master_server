@@ -26,10 +26,10 @@ export const emailRegistro = async (datos: any) => {
     try {
         let sendMail
         console.log("llega aca",msg)
-        setTimeout(async () => {
-            sendMail = await sgMail.send(msg);
-            console.log("aca llega ????", sendMail)
-        }, 4000);
+        
+         sendMail = await sgMail.send(msg);
+         console.log("llega aca 2")
+
         return { mensaje: 'Se envio correctamente el email', sendMail };
 
     } catch (error) {
