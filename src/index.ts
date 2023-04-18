@@ -2,6 +2,7 @@ import express, { Request, Response } from 'express'
 import cors from 'cors';
 import dotenv from 'dotenv'
 import partidosRoutes from './routes/partidos.routes'
+import userRoutes from './routes/user.routes'
 import mongoose from 'mongoose'
 import { MongoClientOptions } from 'mongodb'
 
@@ -33,6 +34,7 @@ server.use(express.json());
 server.use(cors());
 
 server.use('/partidos', partidosRoutes);
+server.use('/user',userRoutes)
 
 server.get('/health', (req:Request,res:Response)=>{
     res.send("Hola")

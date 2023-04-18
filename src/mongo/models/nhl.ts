@@ -6,7 +6,7 @@ export interface NhlInterface extends mongoose.Document {
     puntosLocal: Number,
     puntosVisitante: Number,
     hora: String,
-    
+
     apuestas: {
         handicapLocal: [
             String,
@@ -27,13 +27,16 @@ export interface NhlInterface extends mongoose.Document {
         ganadorLocal: Number,
         ganadorVisitante: Number
     },
+    resumen: String,
+    pick: []
+
 
 }
 
 
 const nhlSchema = new Schema({
     equipoLocal: { type: String },
-    equipoVisitante: { type: String},
+    equipoVisitante: { type: String },
     puntosLocal: { type: Number },
     puntosVisitante: { type: Number },
     hora: { type: String },
@@ -65,7 +68,12 @@ const nhlSchema = new Schema({
         ],
         ganadorLocal: { type: Number },
         ganadorVisitante: { type: Number },
-    }
+    },
+    resumen: String,
+    pick: []
+
+
+
 })
 
 export default model<NhlInterface>('Nhl', nhlSchema)

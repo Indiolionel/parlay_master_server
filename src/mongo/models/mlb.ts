@@ -26,6 +26,9 @@ export interface MlbInterface extends mongoose.Document {
         ganadorLocal: Number,
         ganadorVisitante: Number
     },
+    resumen: String,
+    pick: []
+
 
 }
 
@@ -64,7 +67,10 @@ const mlbSchema = new Schema({
         ],
         ganadorLocal: { type: Number },
         ganadorVisitante: { type: Number },
-    }
+    },
+    resumen: String,
+    pick: []
+
 })
 
 export default model<MlbInterface>('Mlb', mlbSchema)

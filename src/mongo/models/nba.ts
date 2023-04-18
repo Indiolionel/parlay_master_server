@@ -26,6 +26,8 @@ export interface NbaInterface extends mongoose.Document {
         ganadorLocal: Number,
         ganadorVisitante: Number
     },
+    resumen:String,
+    pick: []
 
 }
 
@@ -64,7 +66,11 @@ const nbaSchema = new Schema({
         ],
         ganadorLocal: { type: Number },
         ganadorVisitante: { type: Number },
-    }
+    },
+    resumen: String,
+    pick: []
+
+
 })
 
 export default model<NbaInterface>('Nba', nbaSchema)
