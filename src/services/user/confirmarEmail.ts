@@ -4,8 +4,8 @@ import dotenv from 'dotenv'
 dotenv.config();
 export const emailRegistro = async (datos: any) => {
     console.log(datos)
-    console.log("api sendGrid",process.env.SENDGRID_API_KEY)
-    console.log("url frontend",process.env.FRONTEND_URL)
+    console.log("api sendGrid", process.env.SENDGRID_API_KEY)
+    console.log("url frontend", process.env.FRONTEND_URL)
 
     sgMail.setApiKey(process.env.SENDGRID_API_KEY!);
 
@@ -24,10 +24,12 @@ export const emailRegistro = async (datos: any) => {
     };
 
     try {
-
+        let sendMail
         console.log("llega aca")
-        const sendMail = await sgMail.send(msg);
-        console.log("aca llega ????", sendMail)
+        setTimeout(async () => {
+            sendMail = await sgMail.send(msg);
+            console.log("aca llega ????", sendMail)
+        }, 5000);
         return { mensaje: 'Se envio correctamente el email', sendMail };
 
     } catch (error) {
