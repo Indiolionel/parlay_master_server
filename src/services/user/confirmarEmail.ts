@@ -24,12 +24,13 @@ export const emailRegistro = async (datos: any) => {
     };
 
     try {
-
+        let sendMail
         console.log("llega aca")
-        await sgMail.send(msg);
-        console.log("aca llega ????")
-
-        return { mensaje: 'Se envio correctamente el email', msg };
+        setTimeout(async () => {
+            sendMail = await sgMail.send(msg);
+            console.log("aca llega ????", sendMail)
+        }, 4000);
+        return { mensaje: 'Se envio correctamente el email', sendMail };
 
     } catch (error) {
         console.error('Error al enviar el correo electrónico:', error);
