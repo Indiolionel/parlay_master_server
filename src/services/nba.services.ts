@@ -2,7 +2,7 @@
 import { NbaInterface } from '../mongo/models/nba'
 import nba from '../mongo/models/nba'
 import { db } from '../index'
-import { convertirHoraNba } from '../scraper/conversionHora'
+// import { convertirHoraNba } from '../scraper/conversionHora'
 
 
 export class NbaService {
