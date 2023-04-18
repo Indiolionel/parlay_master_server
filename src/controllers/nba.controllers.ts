@@ -8,12 +8,12 @@ export class NbaController {
     
     constructor () {}
 
-    public static async create (req: Request, res: Response) {
-        const data = await start("baloncesto-7","nba-6004")
-        const created = await NbaService.create(data);
+    // public static async create (req: Request, res: Response) {
+    //     const data = await start("baloncesto-7","nba-6004")
+    //     const created = await NbaService.create(data);
 
-		res.status(created.success ? 201 : 400).send(created);
-    }
+	// 	res.status(created.success ? 201 : 400).send(created);
+    // }
 
     public static async getAll(req: Request, res: Response) {
         const partidos = await NbaService.getAll();

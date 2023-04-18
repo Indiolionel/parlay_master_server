@@ -9,43 +9,43 @@ export class NbaService {
     constructor() { }
 
 
-    public static async create(data: any) {
-        try {
+    // public static async create(data: any) {
+    //     try {
 
 
-            const nbaModelo = await data.map((partido: NbaInterface) => {
-                const date= convertirHoraNba(partido.hora)
-                const updateData = {
-                    equipoLocal: partido.local,
-                    equipoVisitante: partido.visitante,
-                    puntosLocal: partido.puntosLocal,
-                    puntosVisitante: partido.puntosVisitante,
-                    hora: partido.hora,
-                    date: date,
-                    apuestas: partido.apuestas,
-                };
+    //         const nbaModelo = await data.map((partido: NbaInterface) => {
+    //             const date= convertirHoraNba(partido.hora)
+    //             const updateData = {
+    //                 equipoLocal: partido.local,
+    //                 equipoVisitante: partido.visitante,
+    //                 puntosLocal: partido.puntosLocal,
+    //                 puntosVisitante: partido.puntosVisitante,
+    //                 hora: partido.hora,
+    //                 date: date,
+    //                 apuestas: partido.apuestas,
+    //             };
 
-                nba.findOneAndUpdate(
-                    { equipoLocal: partido.local, equipoVisitante: partido.visitante },
-                    {...updateData,resumen:"No hay resumen por el momento",pick:'No hay pick por el momento'},
-                    {upsert: true, new: true}
-                ).then((user)=>{
-                    console.log("Usuario actualizado o insertado", user)
-                }).catch((error)=>{
-                    console.log("Error al actualizar o intsertar", error)
-                })
-                return updateData;
+    //             nba.findOneAndUpdate(
+    //                 { equipoLocal: partido.local, equipoVisitante: partido.visitante },
+    //                 {...updateData,resumen:"No hay resumen por el momento",pick:'No hay pick por el momento'},
+    //                 {upsert: true, new: true}
+    //             ).then((user)=>{
+    //                 console.log("Usuario actualizado o insertado", user)
+    //             }).catch((error)=>{
+    //                 console.log("Error al actualizar o intsertar", error)
+    //             })
+    //             return updateData;
 
-            })
-            return { success: true, data: nbaModelo }
+    //         })
+    //         return { success: true, data: nbaModelo }
 
-        } catch (error) {
-            console.log({ error })
-            return { sucess: false, error: 'Hubo un error' };
+    //     } catch (error) {
+    //         console.log({ error })
+    //         return { sucess: false, error: 'Hubo un error' };
 
-        }
+    //     }
 
-    }
+    // }
 
     public static async editarResumen(data: any, resumen: string) {
         try {

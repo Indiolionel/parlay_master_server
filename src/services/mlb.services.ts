@@ -8,44 +8,44 @@ export class MlbService {
     constructor() { }
 
 
-    public static async create(data: any) {
-        try {
+    // public static async create(data: any) {
+    //     try {
 
 
-            const mlbModelo = await data.map((partido: MlbInterface) => {
-                const date = convertirHoraMlb(partido.hora)
-                const updateData = {
-                    equipoLocal: partido.local,
-                    equipoVisitante: partido.visitante,
-                    puntosLocal: partido.puntosLocal,
-                    puntosVisitante: partido.puntosVisitante,
-                    hora: partido.hora,
-                    date: date,
-                    apuestas: partido.apuestas
-                    ,
-                };
+    //         const mlbModelo = await data.map((partido: MlbInterface) => {
+    //             const date = convertirHoraMlb(partido.hora)
+    //             const updateData = {
+    //                 equipoLocal: partido.local,
+    //                 equipoVisitante: partido.visitante,
+    //                 puntosLocal: partido.puntosLocal,
+    //                 puntosVisitante: partido.puntosVisitante,
+    //                 hora: partido.hora,
+    //                 date: date,
+    //                 apuestas: partido.apuestas
+    //                 ,
+    //             };
 
-                mlb.findOneAndUpdate(
-                    { equipoLocal: partido.local, equipoVisitante: partido.visitante },
-                    { ...updateData, resumen: "No hay resumen por el momento", pick: 'No hay pick por el momento' },
-                    { upsert: true, new: true }
-                ).then((user) => {
-                    console.log("Usuario actualizado o insertado", user)
-                }).catch((error) => {
-                    console.log("Error al actualizar o intsertar", error)
-                })
-                return updateData;
+    //             mlb.findOneAndUpdate(
+    //                 { equipoLocal: partido.local, equipoVisitante: partido.visitante },
+    //                 { ...updateData, resumen: "No hay resumen por el momento", pick: 'No hay pick por el momento' },
+    //                 { upsert: true, new: true }
+    //             ).then((user) => {
+    //                 console.log("Usuario actualizado o insertado", user)
+    //             }).catch((error) => {
+    //                 console.log("Error al actualizar o intsertar", error)
+    //             })
+    //             return updateData;
 
-            })
-            return { success: true, data: mlbModelo }
+    //         })
+    //         return { success: true, data: mlbModelo }
 
-        } catch (error) {
-            console.log({ error })
-            return { sucess: false, error: 'Hubo un error' };
+    //     } catch (error) {
+    //         console.log({ error })
+    //         return { sucess: false, error: 'Hubo un error' };
 
-        }
+    //     }
 
-    }
+    // }
 
     public static async getAll() {
         try {

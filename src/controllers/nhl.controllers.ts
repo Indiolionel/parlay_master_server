@@ -8,13 +8,13 @@ export class NhlController {
 
     constructor() { }
 
-    public static async create(req: Request, res: Response) {
-        const data = await start("hockey-sobre-hielo-12", "nhl-34")
+    // public static async create(req: Request, res: Response) {
+    //     const data = await start("hockey-sobre-hielo-12", "nhl-34")
 
-        const created = await NhlService.create(data);
+    //     const created = await NhlService.create(data);
 
-        res.status(created.success ? 201 : 400).send(created);
-    }
+    //     res.status(created.success ? 201 : 400).send(created);
+    // }
 
     public static async getAll(req: Request, res: Response) {
 

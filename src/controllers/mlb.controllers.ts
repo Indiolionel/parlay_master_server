@@ -8,13 +8,13 @@ export class MlbController {
     
     constructor () {}
 
-    public static async create (req: Request, res: Response) {
-        const data = await start("b%C3%A9isbol-23","mlb-75")
+    // public static async create (req: Request, res: Response) {
+    //     const data = await start("b%C3%A9isbol-23","mlb-75")
 
-        const created = await MlbService.create(data);
+    //     const created = await MlbService.create(data);
 
-		res.status(created.success ? 201 : 400).send(created);
-    }
+	// 	res.status(created.success ? 201 : 400).send(created);
+    // }
 
     public static async getAll(req: Request, res: Response) {
         const partidos = await MlbService.getAll();
