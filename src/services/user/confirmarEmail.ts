@@ -3,12 +3,9 @@ import dotenv from 'dotenv'
 
 dotenv.config();
 export const emailRegistro = async (datos: any) => {
-    console.log(datos)
-    console.log("api sendGrid", process.env.SENDGRID_API_KEY)
-    console.log("url frontend", process.env.FRONTEND_URL)
+  
 
     const respuesta_api = sgMail.setApiKey(process.env.SENDGRID_API_KEY!);
-    console.log("api-key-sengrid", respuesta_api)
     const { email, username, token } = datos;
     const htmlConfirmar = `<p>Hola: ${username} Confirma tu cuenta en parlay-master</p>
     <p>Tu cuenta ya esta casi lista, solo debes confirmarla en el siguiente enlace: 
@@ -25,10 +22,8 @@ export const emailRegistro = async (datos: any) => {
 
     try {
         let sendMail
-        console.log("llega aca", msg)
 
         sendMail = await sgMail.send(msg);
-        console.log("llega aca 2")
 
         return { mensaje: 'Se envio correctamente el email', sendMail };
 

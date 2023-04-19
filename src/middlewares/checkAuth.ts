@@ -11,8 +11,6 @@ const checkAuth = async (req:any, res:any, next:NextFunction) => {
     try {
       token = req.headers.authorization.split(" ")[1];
 
-      console.log(token)
-
       const decoded:any = jwt.verify(token, "dfsdgfdfg");
 
       req.usuario = await User.findById(decoded.id);

@@ -23,7 +23,6 @@ export class UserController {
 
     public static async login(req: Request, res: Response) {
         const login = await UserService.login(req.body)
-
         res.status(login.success ? 200 : 404).send(login);
     }
 

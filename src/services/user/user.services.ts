@@ -52,14 +52,16 @@ export class UserService {
         const { email } = data
         try {
             const userData = await user.findOne({ email });
-            if (!userData) return { sucess: false, error: 'No existe el email registrado', code: "auth/user-not-found" };
-            console.log(userData)
+            if (!userData) return { sucess: false, error: 'No existe el email registrado' };
             const token = JWTservice.sign({ id: userData?.id, email })
 
             const isMatch = await bcrypt.compare(data.password.toString(), userData?.password?.toString() ?? '');
-
             if (!isMatch) {
-                return { sucess: false, error: 'Los datos ingresados son incorrectos', code: "auth/wrong-password" }
+                return { sucess: false, error: 'Los datos ingresados son incorrectos' }
+            }
+            if (!userData.confirmado) {
+                return { sucess: false, error: 'Debes confirmar la cuenta' }
+
             }
             return { success: true, data: { token, email: userData.email, nombre: userData.nombre, pago: userData.pago, rol: userData.rol } };
 
