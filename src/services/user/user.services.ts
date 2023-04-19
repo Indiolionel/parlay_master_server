@@ -33,7 +33,7 @@ export class UserService {
 
             const userData = await user.create({ ...data, password: hashPassword, token });
 
-            const emailNodemailer = emailRegistro({
+            const emailNodemailer = await emailRegistro({
                 email: userData.email,
                 username: userData.nombre,
                 token: userData.token

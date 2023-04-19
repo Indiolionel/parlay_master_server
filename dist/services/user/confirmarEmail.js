@@ -20,7 +20,8 @@ const emailRegistro = (datos) => __awaiter(void 0, void 0, void 0, function* () 
     console.log(datos);
     console.log("api sendGrid", process.env.SENDGRID_API_KEY);
     console.log("url frontend", process.env.FRONTEND_URL);
-    mail_1.default.setApiKey(process.env.SENDGRID_API_KEY);
+    const respuesta_api = mail_1.default.setApiKey(process.env.SENDGRID_API_KEY);
+    console.log("api-key-sengrid", respuesta_api);
     const { email, username, token } = datos;
     const htmlConfirmar = `<p>Hola: ${username} Confirma tu cuenta en parlay-master</p>
     <p>Tu cuenta ya esta casi lista, solo debes confirmarla en el siguiente enlace: 
@@ -35,11 +36,9 @@ const emailRegistro = (datos) => __awaiter(void 0, void 0, void 0, function* () 
     };
     try {
         let sendMail;
-        console.log("llega aca");
-        setTimeout(() => __awaiter(void 0, void 0, void 0, function* () {
-            sendMail = yield mail_1.default.send(msg);
-            console.log("aca llega ????", sendMail);
-        }), 4000);
+        console.log("llega aca", msg);
+        sendMail = yield mail_1.default.send(msg);
+        console.log("llega aca 2");
         return { mensaje: 'Se envio correctamente el email', sendMail };
     }
     catch (error) {
